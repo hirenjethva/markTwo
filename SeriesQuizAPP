@@ -1,0 +1,37 @@
+readline = require('readline-sync');
+
+function setup(){
+  ip = readline.question('Have you watched Squid Game(y/n)? ')
+  if(ip.toLowerCase() == 'y'){
+    console.log('Wohoo! Lets have a quiz about Squid Game');
+  }
+  else if(ip.toLowerCase() == 'n'){
+    console.log('Ok:< lets just guess.');
+  }
+  else{
+    setup()
+  }
+}
+
+
+function quiz(score, question, answer){
+  ip = readline.question(question)
+  if(ip.toLowerCase() == answer){
+    console.log('Correct')
+    score++;
+    console.log('score ',score)
+  }else{
+    console.log('Wrong')
+    console.log('score ',score)
+  }
+  return score
+}
+
+input = readline.question("What's your name? ")
+console.log('Hi '+input+', Welcome!')
+setup()
+score = 0
+score = quiz(score, "What's the main purpose of Squid Game ? a. Fun b. Money c. Partying d.none of the one - ", 'a')
+score = quiz(score, "Main charcter Name(player 456) ? a. kang sae-byeok b. Hwang in-ho c. cho sang-woo d. Seong Gi-hun - ", 'd')
+score = quiz(score, "Name of First Game in Series ? a. Red Light-Green Light b. Sugar Honeycombs c.Tug of war d. Marbels - ", 'a')
+console.log("your're final score is "+score+'/3')
